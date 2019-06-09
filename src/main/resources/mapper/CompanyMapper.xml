@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ldu.bs.dao.CompanyMapper">
+  <resultMap id="BaseResultMap" type="com.ldu.bs.bean.Company">
+    <id column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_phone" jdbcType="VARCHAR" property="companyPhone" />
+    <result column="company_email" jdbcType="VARCHAR" property="companyEmail" />
+    <result column="company_pwd" jdbcType="VARCHAR" property="companyPwd" />
+    <result column="company_logo" jdbcType="VARCHAR" property="companyLogo" />
+    <result column="company_website" jdbcType="VARCHAR" property="companyWebsite" />
+    <result column="company_city" jdbcType="VARCHAR" property="companyCity" />
+    <result column="company_position" jdbcType="VARCHAR" property="companyPosition" />
+    <result column="field" jdbcType="VARCHAR" property="field" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+    <result column="stage" jdbcType="VARCHAR" property="stage" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="receive_email" jdbcType="VARCHAR" property="receiveEmail" />
+    <result column="allname" jdbcType="VARCHAR" property="allname" />
+    <result column="company_describe" jdbcType="LONGVARCHAR" property="companyDescribe" />
+    <result column="is_authentication" jdbcType="CHAR" property="isAuthentication" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.ldu.bs.bean.Company">
+    <result column="company_describe" jdbcType="LONGVARCHAR" property="companyDescribe" />
+  </resultMap>
+  <resultMap id="WithPosResultMap" type="com.ldu.bs.bean.Company">
+    <id column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_phone" jdbcType="VARCHAR" property="companyPhone" />
+    <result column="company_email" jdbcType="VARCHAR" property="companyEmail" />
+    <result column="company_pwd" jdbcType="VARCHAR" property="companyPwd" />
+    <result column="company_logo" jdbcType="VARCHAR" property="companyLogo" />
+    <result column="company_website" jdbcType="VARCHAR" property="companyWebsite" />
+    <result column="company_city" jdbcType="VARCHAR" property="companyCity" />
+    <result column="company_position" jdbcType="VARCHAR" property="companyPosition" />
+    <result column="field" jdbcType="VARCHAR" property="field" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+    <result column="stage" jdbcType="VARCHAR" property="stage" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="receive_email" jdbcType="VARCHAR" property="receiveEmail" />
+    <result column="company_describe" jdbcType="LONGVARCHAR" property="companyDescribe" />
+    <result column="allname" jdbcType="VARCHAR" property="allname" />
+    <result column="is_authentication" jdbcType="CHAR" property="isAuthentication" />
+
+    <!--指定联合查询出的职位字段的封装-->
+    <association property="position" javaType="com.ldu.bs.bean.Position">
+      <id column="position_id" jdbcType="INTEGER" property="positionId" />
+      <result column="position_name" jdbcType="VARCHAR" property="positionName" />
+      <result column="department" jdbcType="VARCHAR" property="department" />
+      <result column="job_type" jdbcType="VARCHAR" property="jobType" />
+      <result column="min_salary" jdbcType="INTEGER" property="minSalary" />
+      <result column="max_salary" jdbcType="INTEGER" property="maxSalary" />
+      <result column="job_city" jdbcType="VARCHAR" property="jobCity" />
+      <result column="job_experience" jdbcType="VARCHAR" property="jobExperience" />
+      <result column="degree" jdbcType="VARCHAR" property="degree" />
+      <result column="position_describe" jdbcType="LONGVARCHAR" property="positionDescribe" />
+      <result column="position_temptation" jdbcType="VARCHAR" property="positionTemptation" />
+      <result column="position_requirement" jdbcType="VARCHAR" property="positionRequirement" />
+      <result column="job_addr" jdbcType="VARCHAR" property="jobAddr" />
+      <result column="company_id" jdbcType="INTEGER" property="companyId" />
+      <result column="release_time" jdbcType="VARCHAR" property="releaseTime" />
+    </association>
+  </resultMap>
+
+  <sql id="WithPos_Column_List">
+    p.position_id, p.position_name, p.department, p.job_type, p.min_salary, p.max_salary, p.job_city,
+    p.job_experience, p.degree, p.position_temptation, p.position_requirement, p.job_addr,
+    p.company_id, p.position_describe, p.release_time, c.company_id, c.company_name, c.company_phone, c.company_email,
+    c.company_pwd, c.company_logo, c.company_website, c.company_city, c.company_position, c.field, c.scale, c.stage, c.tag,
+    c.receive_email, c.company_describe, c.allname, c.is_authentication
+  </sql>
+
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    company_id, company_name, company_phone, company_email, company_pwd, company_logo, 
+    company_website, company_city, company_position, field, scale, stage, tag, receive_email, 
+    allname, is_authentication, company_describe
+  </sql>
+  <sql id="Blob_Column_List">
+    company_describe
+  </sql>
+
+
+  <!--查询公司同时带职位信息-->
+  <select id="selectByExampleWithPos" resultMap="WithPosResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="WithPos_Column_List" />
+    from company c
+    LEFT JOIN position p on p.company_id=c.company_id
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+  <select id="selectByExampleWithPosition" parameterType="java.lang.Integer" resultMap="WithPosResultMap">
+    select * from position p where p.company_id = #{companyId}
+  </select>
+
+  <select id="selectByExampleWithBLOBs" parameterType="com.ldu.bs.bean.CompanyExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from company
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.ldu.bs.bean.CompanyExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from company
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from company
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from company
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ldu.bs.bean.CompanyExample">
+    delete from company
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ldu.bs.bean.Company">
+    insert into company (company_id, company_name, company_phone, 
+      company_email, company_pwd, company_logo, 
+      company_website, company_city, company_position, 
+      field, scale, stage, 
+      tag, receive_email, allname, 
+      is_authentication, company_describe)
+    values (#{companyId,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{companyPhone,jdbcType=VARCHAR}, 
+      #{companyEmail,jdbcType=VARCHAR}, #{companyPwd,jdbcType=VARCHAR}, #{companyLogo,jdbcType=VARCHAR}, 
+      #{companyWebsite,jdbcType=VARCHAR}, #{companyCity,jdbcType=VARCHAR}, #{companyPosition,jdbcType=VARCHAR}, 
+      #{field,jdbcType=VARCHAR}, #{scale,jdbcType=VARCHAR}, #{stage,jdbcType=VARCHAR}, 
+      #{tag,jdbcType=VARCHAR}, #{receiveEmail,jdbcType=VARCHAR}, #{allname,jdbcType=VARCHAR}, 
+      #{isAuthentication,jdbcType=CHAR}, #{companyDescribe,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ldu.bs.bean.Company">
+    insert into company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyPhone != null">
+        company_phone,
+      </if>
+      <if test="companyEmail != null">
+        company_email,
+      </if>
+      <if test="companyPwd != null">
+        company_pwd,
+      </if>
+      <if test="companyLogo != null">
+        company_logo,
+      </if>
+      <if test="companyWebsite != null">
+        company_website,
+      </if>
+      <if test="companyCity != null">
+        company_city,
+      </if>
+      <if test="companyPosition != null">
+        company_position,
+      </if>
+      <if test="field != null">
+        field,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+      <if test="stage != null">
+        stage,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+      <if test="receiveEmail != null">
+        receive_email,
+      </if>
+      <if test="allname != null">
+        allname,
+      </if>
+      <if test="isAuthentication != null">
+        is_authentication,
+      </if>
+      <if test="companyDescribe != null">
+        company_describe,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPhone != null">
+        #{companyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyEmail != null">
+        #{companyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPwd != null">
+        #{companyPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLogo != null">
+        #{companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyWebsite != null">
+        #{companyWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCity != null">
+        #{companyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPosition != null">
+        #{companyPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="field != null">
+        #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="stage != null">
+        #{stage,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveEmail != null">
+        #{receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="allname != null">
+        #{allname,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuthentication != null">
+        #{isAuthentication,jdbcType=CHAR},
+      </if>
+      <if test="companyDescribe != null">
+        #{companyDescribe,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ldu.bs.bean.CompanyExample" resultType="java.lang.Long">
+    select count(*) from company
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update company
+    <set>
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyName != null">
+        company_name = #{record.companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyPhone != null">
+        company_phone = #{record.companyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyEmail != null">
+        company_email = #{record.companyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyPwd != null">
+        company_pwd = #{record.companyPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyLogo != null">
+        company_logo = #{record.companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyWebsite != null">
+        company_website = #{record.companyWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyCity != null">
+        company_city = #{record.companyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyPosition != null">
+        company_position = #{record.companyPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.field != null">
+        field = #{record.field,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scale != null">
+        scale = #{record.scale,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stage != null">
+        stage = #{record.stage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tag != null">
+        tag = #{record.tag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveEmail != null">
+        receive_email = #{record.receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allname != null">
+        allname = #{record.allname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isAuthentication != null">
+        is_authentication = #{record.isAuthentication,jdbcType=CHAR},
+      </if>
+      <if test="record.companyDescribe != null">
+        company_describe = #{record.companyDescribe,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update company
+    set company_id = #{record.companyId,jdbcType=INTEGER},
+      company_name = #{record.companyName,jdbcType=VARCHAR},
+      company_phone = #{record.companyPhone,jdbcType=VARCHAR},
+      company_email = #{record.companyEmail,jdbcType=VARCHAR},
+      company_pwd = #{record.companyPwd,jdbcType=VARCHAR},
+      company_logo = #{record.companyLogo,jdbcType=VARCHAR},
+      company_website = #{record.companyWebsite,jdbcType=VARCHAR},
+      company_city = #{record.companyCity,jdbcType=VARCHAR},
+      company_position = #{record.companyPosition,jdbcType=VARCHAR},
+      field = #{record.field,jdbcType=VARCHAR},
+      scale = #{record.scale,jdbcType=VARCHAR},
+      stage = #{record.stage,jdbcType=VARCHAR},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      receive_email = #{record.receiveEmail,jdbcType=VARCHAR},
+      allname = #{record.allname,jdbcType=VARCHAR},
+      is_authentication = #{record.isAuthentication,jdbcType=CHAR},
+      company_describe = #{record.companyDescribe,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update company
+    set company_id = #{record.companyId,jdbcType=INTEGER},
+      company_name = #{record.companyName,jdbcType=VARCHAR},
+      company_phone = #{record.companyPhone,jdbcType=VARCHAR},
+      company_email = #{record.companyEmail,jdbcType=VARCHAR},
+      company_pwd = #{record.companyPwd,jdbcType=VARCHAR},
+      company_logo = #{record.companyLogo,jdbcType=VARCHAR},
+      company_website = #{record.companyWebsite,jdbcType=VARCHAR},
+      company_city = #{record.companyCity,jdbcType=VARCHAR},
+      company_position = #{record.companyPosition,jdbcType=VARCHAR},
+      field = #{record.field,jdbcType=VARCHAR},
+      scale = #{record.scale,jdbcType=VARCHAR},
+      stage = #{record.stage,jdbcType=VARCHAR},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      receive_email = #{record.receiveEmail,jdbcType=VARCHAR},
+      allname = #{record.allname,jdbcType=VARCHAR},
+      is_authentication = #{record.isAuthentication,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.bs.bean.Company">
+    update company
+    <set>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPhone != null">
+        company_phone = #{companyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="companyEmail != null">
+        company_email = #{companyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPwd != null">
+        company_pwd = #{companyPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLogo != null">
+        company_logo = #{companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="companyWebsite != null">
+        company_website = #{companyWebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCity != null">
+        company_city = #{companyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPosition != null">
+        company_position = #{companyPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="field != null">
+        field = #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="stage != null">
+        stage = #{stage,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveEmail != null">
+        receive_email = #{receiveEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="allname != null">
+        allname = #{allname,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuthentication != null">
+        is_authentication = #{isAuthentication,jdbcType=CHAR},
+      </if>
+      <if test="companyDescribe != null">
+        company_describe = #{companyDescribe,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ldu.bs.bean.Company">
+    update company
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      company_phone = #{companyPhone,jdbcType=VARCHAR},
+      company_email = #{companyEmail,jdbcType=VARCHAR},
+      company_pwd = #{companyPwd,jdbcType=VARCHAR},
+      company_logo = #{companyLogo,jdbcType=VARCHAR},
+      company_website = #{companyWebsite,jdbcType=VARCHAR},
+      company_city = #{companyCity,jdbcType=VARCHAR},
+      company_position = #{companyPosition,jdbcType=VARCHAR},
+      field = #{field,jdbcType=VARCHAR},
+      scale = #{scale,jdbcType=VARCHAR},
+      stage = #{stage,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      receive_email = #{receiveEmail,jdbcType=VARCHAR},
+      allname = #{allname,jdbcType=VARCHAR},
+      is_authentication = #{isAuthentication,jdbcType=CHAR},
+      company_describe = #{companyDescribe,jdbcType=LONGVARCHAR}
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ldu.bs.bean.Company">
+    update company
+    set company_name = #{companyName,jdbcType=VARCHAR},
+      company_phone = #{companyPhone,jdbcType=VARCHAR},
+      company_email = #{companyEmail,jdbcType=VARCHAR},
+      company_pwd = #{companyPwd,jdbcType=VARCHAR},
+      company_logo = #{companyLogo,jdbcType=VARCHAR},
+      company_website = #{companyWebsite,jdbcType=VARCHAR},
+      company_city = #{companyCity,jdbcType=VARCHAR},
+      company_position = #{companyPosition,jdbcType=VARCHAR},
+      field = #{field,jdbcType=VARCHAR},
+      scale = #{scale,jdbcType=VARCHAR},
+      stage = #{stage,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      receive_email = #{receiveEmail,jdbcType=VARCHAR},
+      allname = #{allname,jdbcType=VARCHAR},
+      is_authentication = #{isAuthentication,jdbcType=CHAR}
+    where company_id = #{companyId,jdbcType=INTEGER}
+  </update>
+</mapper>

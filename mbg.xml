@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <!--配置数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/campus_recruitment?serverTimezone=GMT%2B8"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--指定javabean生成的位置-->
+        <javaModelGenerator
+                targetPackage="com.ldu.bs.bean"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--指定sql映射文件生成的位置-->
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--指定dao接口生成位置，mapper接口-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.ldu.bs.dao"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--table指定每个表的生成策略-->
+        <!--<table tableName="ad" domainObjectName="Ad" ></table>-->
+        <!--<table tableName="admin" domainObjectName="Admin" ></table>-->
+        <!--<table tableName="authentication" domainObjectName="Authentication" ></table>-->
+        <!--<table tableName="big_class" domainObjectName="BigClass" ></table>-->
+        <!--<table tableName="comment" domainObjectName="Comment" ></table>-->
+        <!--<table tableName="question" domainObjectName="Question" ></table>-->
+        <!--<table tableName="company" domainObjectName="Company" ></table>-->
+        <!--<table tableName="emp" domainObjectName="Emp" ></table>-->
+        <!--<table tableName="mid_class" domainObjectName="MidClass" ></table>-->
+        <!--<table tableName="position" domainObjectName="Position" ></table>-->
+        <!--<table tableName="resume" domainObjectName="Resume" ></table>-->
+        <!--<table tableName="small_class" domainObjectName="SmallClass" ></table>-->
+        <!--<table tableName="toudi" domainObjectName="Toudi" ></table>-->
+        <!--<table tableName="collect" domainObjectName="Collect"></table>-->
+    </context>
+</generatorConfiguration>

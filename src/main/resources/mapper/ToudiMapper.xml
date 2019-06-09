@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ldu.bs.dao.ToudiMapper">
+  <resultMap id="BaseResultMap" type="com.ldu.bs.bean.Toudi">
+    <id column="toudi_id" jdbcType="INTEGER" property="toudiId" />
+    <result column="position_id" jdbcType="INTEGER" property="positionId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="toudi_date" jdbcType="VARCHAR" property="toudiDate" />
+    <result column="toudi_type" jdbcType="INTEGER" property="toudiType" />
+  </resultMap>
+  <resultMap id="WithResumeResultMap" type="com.ldu.bs.bean.Toudi">
+    <id column="toudi_id" jdbcType="INTEGER" property="toudiId" />
+    <result column="position_id" jdbcType="INTEGER" property="positionId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="toudi_type" jdbcType="INTEGER" property="toudiType" />
+    <result column="toudi_date" jdbcType="VARCHAR" property="toudiDate"/>
+    <!--指定联合查询出的简历字段的封装-->
+    <association javaType="com.ldu.bs.bean.Resume" property="resume">
+      <id column="resume_id" jdbcType="INTEGER" property="resumeId" />
+      <result column="resume_name" jdbcType="VARCHAR" property="resumeName" />
+      <result column="degree" jdbcType="VARCHAR" property="degree" />
+      <result column="photo" jdbcType="VARCHAR" property="photo" />
+      <result column="phone" jdbcType="VARCHAR" property="phone" />
+      <result column="city" jdbcType="VARCHAR" property="city" />
+      <result column="jobtype" jdbcType="VARCHAR" property="jobtype" />
+      <result column="position" jdbcType="VARCHAR" property="position" />
+      <result column="salary" jdbcType="VARCHAR" property="salary" />
+      <result column="project" jdbcType="VARCHAR" property="project" />
+      <result column="post" jdbcType="VARCHAR" property="post" />
+      <result column="starttime" jdbcType="VARCHAR" property="starttime" />
+      <result column="endtime" jdbcType="VARCHAR" property="endtime" />
+      <result column="major" jdbcType="VARCHAR" property="major" />
+      <result column="emp_id" jdbcType="INTEGER" property="empId" />
+      <result column="start_stu" jdbcType="VARCHAR" property="startStu" />
+      <result column="end_stu" jdbcType="VARCHAR" property="endStu" />
+      <result column="jobdescribe" jdbcType="LONGVARCHAR" property="jobdescribe" />
+      <result column="selfdescribe" jdbcType="LONGVARCHAR" property="selfdescribe" />
+    </association>
+  </resultMap>
+
+
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    toudi_id, position_id, resume_id, toudi_date, toudi_type
+  </sql>
+  <sql id="WithResume_Column_List">
+    t.toudi_id, t.position_id, t.resume_id, t.toudi_type, t.toudi_date, r.resume_id, r.resume_name, r.degree, r.photo, r.phone,
+     r.city, r.jobtype, r.position, r.salary, r.project,
+    r.post, r.starttime, r.endtime, r.major, r.emp_id, r.start_stu, r.end_stu,r.jobdescribe, r.selfdescribe
+  </sql>
+
+
+  <!--查询投递信息同时带简历信息-->
+  <select id="selectByExampleWithResume" resultMap="WithResumeResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="WithResume_Column_List" />
+    from toudi t
+    LEFT JOIN resume r on t.resume_id=r.resume_id
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+
+  <!--通过投递信息查询简历信息-->
+  <select id="selectResume" parameterType="java.lang.Integer" resultMap="WithResumeResultMap">
+    select * from resume,toudi where toudi.toudi_type = #{i} and resume.resume_id = toudi.resume_id
+  </select>
+  <select id="selectByExample" parameterType="com.ldu.bs.bean.ToudiExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from toudi
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from toudi
+    where toudi_id = #{toudiId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from toudi
+    where toudi_id = #{toudiId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ldu.bs.bean.ToudiExample">
+    delete from toudi
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ldu.bs.bean.Toudi">
+    insert into toudi (toudi_id, position_id, resume_id, 
+      toudi_date, toudi_type)
+    values (#{toudiId,jdbcType=INTEGER}, #{positionId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+      #{toudiDate,jdbcType=VARCHAR}, #{toudiType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ldu.bs.bean.Toudi">
+    insert into toudi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="toudiId != null">
+        toudi_id,
+      </if>
+      <if test="positionId != null">
+        position_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="toudiDate != null">
+        toudi_date,
+      </if>
+      <if test="toudiType != null">
+        toudi_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="toudiId != null">
+        #{toudiId,jdbcType=INTEGER},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="toudiDate != null">
+        #{toudiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="toudiType != null">
+        #{toudiType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ldu.bs.bean.ToudiExample" resultType="java.lang.Long">
+    select count(*) from toudi
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update toudi
+    <set>
+      <if test="record.toudiId != null">
+        toudi_id = #{record.toudiId,jdbcType=INTEGER},
+      </if>
+      <if test="record.positionId != null">
+        position_id = #{record.positionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.resumeId != null">
+        resume_id = #{record.resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.toudiDate != null">
+        toudi_date = #{record.toudiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.toudiType != null">
+        toudi_type = #{record.toudiType,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update toudi
+    set toudi_id = #{record.toudiId,jdbcType=INTEGER},
+      position_id = #{record.positionId,jdbcType=INTEGER},
+      resume_id = #{record.resumeId,jdbcType=INTEGER},
+      toudi_date = #{record.toudiDate,jdbcType=VARCHAR},
+      toudi_type = #{record.toudiType,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.bs.bean.Toudi">
+    update toudi
+    <set>
+      <if test="positionId != null">
+        position_id = #{positionId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        resume_id = #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="toudiDate != null">
+        toudi_date = #{toudiDate,jdbcType=VARCHAR},
+      </if>
+      <if test="toudiType != null">
+        toudi_type = #{toudiType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where toudi_id = #{toudiId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ldu.bs.bean.Toudi">
+    update toudi
+    set position_id = #{positionId,jdbcType=INTEGER},
+      resume_id = #{resumeId,jdbcType=INTEGER},
+      toudi_date = #{toudiDate,jdbcType=VARCHAR},
+      toudi_type = #{toudiType,jdbcType=INTEGER}
+    where toudi_id = #{toudiId,jdbcType=INTEGER}
+  </update>
+</mapper>

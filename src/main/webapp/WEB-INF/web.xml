@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--1、启动Spring的容器-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <!--2、配置springMVC的前端控制器，拦截所有请求-->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+  <!--3、字符编码过滤器,一定要放到所有过滤器前面-->
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceRequestEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceResponseEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--4、使用REST风格的URI:将页面普通的post请求转为指定的delete或者put请求-->
+  <filter>
+    <filter-name>HiddenHttpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>HiddenHttpMethodFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>HttpPutFormContentFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>HttpPutFormContentFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--&lt;!&ndash; =======================================错误页配置开始====================================== &ndash;&gt;-->
+  <!--&lt;!&ndash; 400错误 &ndash;&gt;-->
+  <!--<error-page>-->
+    <!--<error-code>400</error-code>-->
+    <!--<location>/WEB-INF/views/admin/error.jsp</location>-->
+  <!--</error-page>-->
+  <!--&lt;!&ndash; 404 页面不存在错误 &ndash;&gt;-->
+  <!--<error-page>-->
+    <!--<error-code>404</error-code>-->
+    <!--<location>/WEB-INF/views/admin/error.jsp</location>-->
+  <!--</error-page>-->
+  <!--&lt;!&ndash; 500 服务器内部错误 &ndash;&gt;-->
+  <!--<error-page>-->
+    <!--<error-code>500</error-code>-->
+    <!--<location>/WEB-INF/views/admin/error.jsp</location>-->
+  <!--</error-page>-->
+  <!--&lt;!&ndash; java.lang.Exception异常错误,依据这个标记可定义多个类似错误提示 &ndash;&gt;-->
+  <!--<error-page>-->
+    <!--<exception-type>java.lang.Exception</exception-type>-->
+    <!--<location>/WEB-INF/views/admin/error.jsp</location>-->
+  <!--</error-page>-->
+  <!--&lt;!&ndash; java.lang.NullPointerException异常错误,依据这个标记可定义多个类似错误提示 &ndash;&gt;-->
+  <!--<error-page>-->
+    <!--<exception-type>java.lang.NullPointerException</exception-type>-->
+    <!--<location>/WEB-INF/views/admin/error.jsp</location>-->
+  <!--</error-page>-->
+
+  <!--<error-page>-->
+    <!--<exception-type>javax.servlet.ServletException</exception-type>-->
+    <!--<location>/WEB-INF/views/admin/error.jsp</location>-->
+  <!--</error-page>-->
+  <!--&lt;!&ndash; =======================================错误页配置结束====================================== &ndash;&gt;-->
+
+</web-app>

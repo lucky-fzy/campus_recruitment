@@ -1,0 +1,3567 @@
+* {
+    outline: 0
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;
+    color: #333;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block
+}
+
+progress {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+a {
+    color: #555;
+    background-color: transparent;
+    text-decoration: none
+}
+
+a:hover {
+    color: #00b38a
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    font-weight: 400
+}
+
+p {
+    margin: 0
+}
+
+p + p {
+    margin-top: 10px
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+    display: inline-block
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ededed;
+    border-radius: 0;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica
+}
+
+textarea {
+    overflow: auto
+}
+
+label, select, button, input[type=button], input[type=reset], input[type=submit], input[type=radio], input[type=checkbox], input[type=file] {
+    cursor: pointer
+}
+
+input[type=text], input[type=password], textarea {
+    font-family: "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th, td {
+    padding: 0
+}
+
+strong {
+    font-weight: 400
+}
+
+em, i {
+    font-style: normal
+}
+
+dl, dt, dd {
+    margin: 0
+}
+
+::selection {
+    color: #fff;
+    background-color: #00b38a
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #00b38a
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table
+}
+
+.clearfix:after {
+    clear: both
+}
+
+@font-face {
+    font-family: lagou-www;
+    src: url(//www.lgstatic.com/www/static/common/static/font/lagou-www/fonts/lagou-www_51d67b3.eot?yz50t8);
+    src: url(//www.lgstatic.com/www/static/common/static/font/lagou-www/fonts/lagou-www_51d67b3.eot?yz50t8#iefix) format('embedded-opentype'), url(//www.lgstatic.com/www/static/common/static/font/lagou-www/fonts/lagou-www_733cdb9.ttf?yz50t8) format('truetype'), url(//www.lgstatic.com/www/static/common/static/font/lagou-www/fonts/lagou-www_18cdf9b.woff?yz50t8) format('woff'), url(//www.lgstatic.com/www/static/common/static/font/lagou-www/fonts/lagou-www_c8a28f9.svg?yz50t8#lagou-www) format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+[class^=icon-glyph-], [class*=" icon-glyph-"] {
+    font-family: lagou-www !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.icon-glyph-attachment:before {
+    content: "\e901"
+}
+
+.icon-glyph-attachment2:before {
+    content: "\e902"
+}
+
+.icon-glyph-attention:before {
+    content: "\e903"
+}
+
+.icon-glyph-attention2:before {
+    content: "\e904"
+}
+
+.icon-glyph-question:before {
+    content: "\e905"
+}
+
+.icon-glyph-smile:before {
+    content: "\e906"
+}
+
+.icon-glyph-star:before {
+    content: "\e907"
+}
+
+.icon-glyph-online-resume:before {
+    content: "\e908"
+}
+
+.icon-glyph-hollow-star:before {
+    content: "\e909"
+}
+
+.icon-glyph-wechat:before {
+    content: "\e90a"
+}
+
+.icon-glyph-trend:before {
+    content: "\e90b"
+}
+
+.icon-glyph-fourSquare:before {
+    content: "\e90c"
+}
+
+.icon-glyph-home:before {
+    content: "\e90d"
+}
+
+.icon-glyph-figure:before {
+    content: "\e90e"
+}
+
+.icon-glyph-valid:before {
+    content: "\e90f"
+}
+
+.icon-glyph-address:before {
+    content: "\e910"
+}
+
+.icon-glyph-close2:before {
+    content: "\e911"
+}
+
+.icon-glyph-close:before {
+    content: "\e912"
+}
+
+.icon-glyph-doller:before {
+    content: "\e913"
+}
+
+.icon-glyph-ku:before {
+    content: "\e914"
+}
+
+.icon-glyph-mina:before {
+    content: "\e915"
+}
+
+.icon-glyph-like:before {
+    content: "\e900"
+}
+
+/*!common/widgets/passport/static/styles/index.less*/
+.login-pop {
+    display: none
+}
+
+.login-pop .forms-bottom-password {
+    display: none
+}
+
+.login-pop .forms-top-inner {
+    transform: translate(-316px)
+}
+
+.login-pop .forms-top-password {
+    height: 140px;
+    overflow: hidden;
+    transition: all ease .3s;
+    opacity: 0;
+    visibility: hidden
+}
+
+.login-pop .forms-top-code {
+    opacity: 1;
+    visibility: visible;
+    transition: all ease .3s
+}
+
+.login-pop .passport-pop-wrapper .forms-area.password .forms-top-code {
+    opacity: 0;
+    visibility: hidden
+}
+
+.login-pop .passport-pop-wrapper .forms-area.password .forms-top-password {
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible
+}
+
+.login-pop .passport-pop-wrapper .forms-area.password .forms-top-code {
+    height: 140px;
+    overflow: hidden
+}
+
+.login-pop .passport-pop-wrapper .forms-area.password .forms-top-inner {
+    transform: translate(0)
+}
+
+.login-pop .passport-pop-wrapper .forms-area.password .forms-bottom-code {
+    display: none
+}
+
+.login-pop .passport-pop-wrapper .forms-area.password .forms-bottom-password {
+    display: block
+}
+
+.login-pop .forms-bottom-password .change-login-type {
+    width: 150px;
+    float: left
+}
+
+.login-pop .forms-bottom-password .forgot_pwd {
+    position: relative;
+    float: right;
+    font-size: 14px;
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #999
+}
+
+.login-pop .passport-pop-wrapper .change-btn:after {
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/pop-sprite_de4e5ce.png);
+    background-repeat: no-repeat
+}
+
+.login-pop .passport-pop-wrapper.account .change-btn:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -112px;
+    width: 107px;
+    height: 36px;
+    background-position: -381px -260px
+}
+
+.login-pop .passport-pop-wrapper.wechat .change-btn:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -117px;
+    width: 119px;
+    height: 36px;
+    background-position: -381px -204px
+}
+
+.login-pop .passport-pop-wrapper.wechat .password.change-btn:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -117px;
+    width: 119px;
+    height: 36px;
+    background-position: -254px -204px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .login-pop .passport-pop-wrapper .change-btn:after {
+        background-size: 256px 256px
+    }
+
+    .login-pop .passport-pop-wrapper.account .change-btn:after {
+        background-position: -127px -56px
+    }
+
+    .login-pop .passport-pop-wrapper.wechat .change-btn:after {
+        background-position: -127px -10px
+    }
+
+    .login-pop .passport-pop-wrapper.wechat .password.change-btn:after {
+        background-position: -10px -10px
+    }
+}
+
+.register-pop .passport-pop-wrapper .forms-top-block {
+    margin-bottom: 0
+}
+
+.register-pop .switch-tab {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px
+}
+
+.register-pop .switch-tab div {
+    position: relative;
+    font-size: 16px;
+    color: #666;
+    margin: 0 35px 15px 5px;
+    float: left;
+    cursor: pointer;
+    transition: all ease .3s
+}
+
+.register-pop .switch-tab div:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 10%;
+    width: 63%;
+    height: 2px;
+    background: #333;
+    opacity: 0;
+    transition: all ease .3s
+}
+
+.register-pop .switch-tab div.active {
+    color: #333;
+    font-weight: 700
+}
+
+.register-pop .switch-tab div.active:after {
+    opacity: 1
+}
+
+.register-pop [data-view=phoneRegisterC] {
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+    transition: all ease .3s
+}
+
+.register-pop [data-view=phoneRegisterB] {
+    height: 140px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease .3s
+}
+
+.register-pop .forms-top-wrapper.account-b [data-view=phoneRegisterC] {
+    height: 140px;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden
+}
+
+.register-pop .forms-top-wrapper.account-b [data-view=phoneRegisterB] {
+    height: auto;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible
+}
+
+.register-pop .forms-top-wrapper.account-b .forms-top-inner {
+    transform: translate(-316px)
+}
+
+.register-pop .agreement {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: #999
+}
+
+.register-pop .agreement a {
+    color: #00b38a
+}
+
+.register-pop .wechat .login-btn {
+    margin-top: 90px
+}
+
+.register-pop .passport-pop-wrapper .change-btn:after {
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/pop-sprite_de4e5ce.png);
+    background-repeat: no-repeat
+}
+
+.register-pop .passport-pop-wrapper.account .change-btn:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -112px;
+    width: 107px;
+    height: 36px;
+    background-position: -20px -296px
+}
+
+.register-pop .passport-pop-wrapper.wechat .change-btn:after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -117px;
+    width: 119px;
+    height: 36px;
+    background-position: -254px -260px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .register-pop .passport-pop-wrapper .change-btn:after {
+        background-size: 256px 256px
+    }
+
+    .register-pop .passport-pop-wrapper.account .change-btn:after {
+        background-position: -10px -102px
+    }
+
+    .register-pop .passport-pop-wrapper.wechat .change-btn:after {
+        background-position: -10px -56px
+    }
+}
+
+.modal-open {
+    overflow: hidden
+}
+
+.modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    -webkit-overflow-scrolling: touch;
+    outline: 0
+}
+
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0, -25%);
+    -o-transform: translate(0, -25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -moz-transition: -moz-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0)
+}
+
+.modal-second {
+    z-index: 1042
+}
+
+.modal-second .modal-backdrop {
+    z-index: 1042
+}
+
+.modal-second .modal-dialog {
+    z-index: 1043
+}
+
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+    z-index: 1041
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 6px;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    background-clip: padding-box;
+    outline: 0
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000
+}
+
+.modal-backdrop.fade {
+    opacity: 0
+}
+
+.modal-backdrop.in {
+    opacity: .5
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5
+}
+
+.modal-header .close {
+    margin-top: -2px
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0
+}
+
+.modal-header .close {
+    position: absolute;
+    top: 17px;
+    right: 12px;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.428571429
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #e5e5e5
+}
+
+.modal-footer .btn + .btn {
+    margin-left: 5px;
+    margin-bottom: 0
+}
+
+.modal-footer .btn-group .btn + .btn {
+    margin-left: -1px
+}
+
+.modal-footer .btn-block + .btn-block {
+    margin-left: 0
+}
+
+.modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll
+}
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 600px;
+        margin: 30px auto
+    }
+
+    .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+    }
+
+    .modal-sm {
+        width: 300px
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-lg {
+        width: 900px
+    }
+}
+
+.popup {
+    font: 14px/22px "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial;
+    color: #555;
+    padding: 36px 30px;
+    width: 440px;
+    overflow: hidden
+}
+
+.popup h4 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0 0 25px
+}
+
+.popup p {
+    margin: 0 0 25px
+}
+
+.popup p.mid {
+    text-align: center
+}
+
+.popup a {
+    color: #00b38a;
+    text-decoration: none
+}
+
+.popup .btn_s, .popup .btn {
+    font-size: 20px;
+    background: #00b38a;
+    padding: 0 25px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    height: 37px;
+    color: #fff;
+    border: 0;
+    line-height: 37px;
+    transition: background .2s ease-in 0s
+}
+
+.popup .btn_s:hover, .popup .btn:hover {
+    background: #00a57f
+}
+
+.popup .enter_msg {
+    width: 280px;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 18px
+}
+
+.popup .reset_password {
+    color: #555;
+    font-size: 16px;
+    margin-left: 25px;
+    line-height: 37px
+}
+
+.popup .error_msg {
+    background: url(//www.lgstatic.com/www/static/common/components/popup/img/lb_error_2e20d03.png) 0 5px no-repeat;
+    padding-left: 45px;
+    width: 380px;
+    margin: 0 auto 25px;
+    text-align: left;
+    min-height: 29px;
+    line-height: 36px
+}
+
+.popup .btn_addPic {
+    display: inline-block;
+    position: relative;
+    padding: 0 12px;
+    height: 37px;
+    overflow: hidden;
+    background: #00b38a;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: background .2s ease-in 0s
+}
+
+.popup .btn_addPic:hover {
+    background: #00a57f
+}
+
+.popup .btn_addPic_hover {
+    background: #00a57f
+}
+
+.popup .btn_addPic span {
+    display: block;
+    line-height: 37px
+}
+
+.popup .filePrew {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 145px;
+    height: 37px;
+    font-size: 100px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.popup input[type=text], .popup input[type=password] {
+    background: #f3f3f3
+}
+
+.modal .modal-close_icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    z-index: 3
+}
+
+.modal .modal-close_icon:before, .modal .modal-close_icon:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -.5px;
+    width: 1px;
+    height: 18px;
+    background: #ccc;
+    overflow: hidden;
+    transform-origin: center center
+}
+
+.modal .modal-close_icon:before {
+    transform: rotate(45deg)
+}
+
+.modal .modal-close_icon:after {
+    transform: rotate(135deg)
+}
+
+.login-pop.modal.fade .modal-dialog, .register-pop.modal.fade .modal-dialog {
+    -webkit-transform: translate(-50%, -45%);
+    -ms-transform: translate(-50%, -45%);
+    -o-transform: translate(-50%, -45%);
+    transform: translate(-50%, -45%);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -moz-transition: -moz-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: transform .3s ease-out
+}
+
+.login-pop.modal.in .modal-dialog, .register-pop.modal.in .modal-dialog {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.login-pop.modal .modal-dialog, .register-pop.modal .modal-dialog {
+    width: 436px;
+    min-height: 489px;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0
+}
+
+.login-pop.modal .modal-content, .register-pop.modal .modal-content {
+    border: 0;
+    box-shadow: none;
+    margin: auto;
+    overflow: hidden
+}
+
+.passport-pop-wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box
+}
+
+.passport-pop-wrapper .change-btn {
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer
+}
+
+.passport-pop-wrapper.account .change-btn {
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/popup-sprite_e5ea04f.png);
+    background-repeat: no-repeat;
+    background-position: -440px -268px
+}
+
+.passport-pop-wrapper.account .change-btn:hover {
+    background-position: -334px -330px
+}
+
+.forms-top-inner {
+    transform: translate(0);
+    transition: all ease .3s
+}
+
+.passport-pop-wrapper .auto_phone {
+    padding-left: 0
+}
+
+.passport-pop-wrapper .logo {
+    width: 86px;
+    height: 42px;
+    margin: 35px auto 40px;
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/popup-sprite_e5ea04f.png);
+    background-repeat: no-repeat;
+    background-position: -334px -268px
+}
+
+.passport-pop-wrapper .forms-area {
+    width: 316px;
+    margin: auto
+}
+
+.passport-pop-wrapper .forms-top-wrapper {
+    position: relative;
+    width: 100%
+}
+
+.passport-pop-wrapper .forms-top-inner {
+    width: 200%
+}
+
+.passport-pop-wrapper .forms-top-block {
+    width: 50%;
+    float: left;
+    margin-bottom: -3px
+}
+
+.passport-pop-wrapper .input_item {
+    position: relative;
+    width: 316px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #fff
+}
+
+.passport-pop-wrapper .input_item.focus {
+    border: 1px solid #00b38a
+}
+
+.passport-pop-wrapper .input_item.focus input {
+    background: #fff
+}
+
+.passport-pop-wrapper .input_item.focus .input_group {
+    background: #fff
+}
+
+.passport-pop-wrapper input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding-left: 18px;
+    background: 0 0;
+    border-radius: 0;
+    font-size: 14px;
+    border: 0;
+    background: #f4f4f4
+}
+
+.passport-pop-wrapper input::placeholder {
+    font-size: 14px;
+    color: #999
+}
+
+.passport-pop-wrapper .input_group {
+    background: #f4f4f4
+}
+
+.passport-pop-wrapper .change-login-type {
+    cursor: pointer;
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #00b38a
+}
+
+.passport-pop-wrapper .btn-green {
+    width: 316px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/popup-sprite_e5ea04f.png);
+    background-repeat: no-repeat;
+    background-position: -20px -20px;
+    margin-bottom: 20px;
+    cursor: pointer
+}
+
+.passport-pop-wrapper .btn-green:hover {
+    background-position: -20px -88px
+}
+
+.passport-pop-wrapper .btn-text {
+    width: 100%;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    cursor: pointer
+}
+
+.passport-pop-wrapper .btn-text:hover {
+    color: #00b38a
+}
+
+.passport-pop-wrapper .third-login {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #999
+}
+
+.passport-pop-wrapper .third-login .third-login-btns {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.passport-pop-wrapper .third-login .third-login-btns a {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 13px;
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/third-sprite_d07ffce.png);
+    background-repeat: no-repeat
+}
+
+.passport-pop-wrapper .third-login .third-login-btns a.baidu {
+    margin-right: 0
+}
+
+.passport-pop-wrapper .third-login .weibo {
+    width: 27px;
+    height: 27px;
+    background-position: -196px -82px
+}
+
+.passport-pop-wrapper .third-login .weibo:hover {
+    background-position: -150px -82px
+}
+
+.passport-pop-wrapper .third-login .wechat {
+    width: 27px;
+    height: 27px;
+    background-position: -102px -206px
+}
+
+.passport-pop-wrapper .third-login .wechat:hover {
+    background-position: -149px -206px
+}
+
+.passport-pop-wrapper .third-login .qq {
+    width: 27px;
+    height: 27px;
+    background-position: -196px -123px
+}
+
+.passport-pop-wrapper .third-login .qq:hover {
+    background-position: -196px -164px
+}
+
+.passport-pop-wrapper .third-login .baidu {
+    width: 27px;
+    height: 27px;
+    background-position: -20px -210px
+}
+
+.passport-pop-wrapper .third-login .baidu:hover {
+    background-position: -61px -210px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .passport-pop-wrapper .third-login .third-login-btns a {
+        background-size: 128px 128px
+    }
+
+    .passport-pop-wrapper .third-login .weibo {
+        background-position: -82px -10px
+    }
+
+    .passport-pop-wrapper .third-login .weibo:hover {
+        background-position: -40px -41px
+    }
+
+    .passport-pop-wrapper .third-login .wechat {
+        background-position: -10px -10px
+    }
+
+    .passport-pop-wrapper .third-login .wechat:hover {
+        background-position: -46px -10px
+    }
+
+    .passport-pop-wrapper .third-login .qq {
+        background-position: -40px -72px
+    }
+
+    .passport-pop-wrapper .third-login .qq:hover {
+        background-position: -69px -72px
+    }
+
+    .passport-pop-wrapper .third-login .baidu {
+        background-position: -10px -41px
+    }
+
+    .passport-pop-wrapper .third-login .baidu:hover {
+        background-position: -10px -73px
+    }
+}
+
+.passport-pop-wrapper .input_item.verifycode-input .input {
+    width: 214px;
+    float: left
+}
+
+.passport-pop-wrapper .input_item.verifycode-input .yzm {
+    width: 98px;
+    height: 40px;
+    margin-top: 5px;
+    float: left
+}
+
+.passport-pop-wrapper .input_item.code-input .input {
+    width: 216px;
+    float: left
+}
+
+.passport-pop-wrapper .input_item.code-input .btn {
+    width: 97px;
+    float: left;
+    padding: 0;
+    font-size: 14px;
+    color: #00b38a;
+    text-align: center;
+    line-height: 48px;
+    border: 0;
+    background: 0 0
+}
+
+.passport-pop-wrapper .input_item.auto-input {
+    background: 0 0;
+    line-height: 40px;
+    margin-bottom: 0
+}
+
+.passport-pop-wrapper .input_item.auto-input .auto_phone {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    outline: 0;
+    text-decoration: none;
+    color: #00b389;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    font-size: 14px
+}
+
+.passport-pop-wrapper .input_tips {
+    display: block;
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: #ff7452
+}
+
+.passport-pop-wrapper .reflash {
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    z-index: 2;
+    height: 40px;
+    width: 98px
+}
+
+.passport-pop-wrapper.wechat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    background: rgba(255, 255, 255, .95);
+    z-index: 2
+}
+
+.passport-pop-wrapper.wechat .change-btn {
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/popup-sprite_e5ea04f.png);
+    background-repeat: no-repeat;
+    background-position: -406px -340px
+}
+
+.passport-pop-wrapper.wechat .change-btn:hover {
+    background-position: -334px -402px
+}
+
+.passport-pop-wrapper.wechat .title {
+    margin-top: 74px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    font-weight: bolder
+}
+
+.passport-pop-wrapper.wechat .tips {
+    text-align: center;
+    margin: 15px 0
+}
+
+.passport-pop-wrapper.wechat .img-content {
+    margin-top: 25px;
+    text-align: center;
+    height: 180px
+}
+
+.passport-pop-wrapper.wechat .img-content img[src=""], .passport-pop-wrapper.wechat .img-content img:not([src]) {
+    opacity: 0
+}
+
+.passport-pop-wrapper.wechat .qrCode {
+    margin: auto;
+    width: 180px;
+    height: 180px
+}
+
+.passport-pop-wrapper.wechat .qrCodeCanvas {
+    display: none;
+    margin: auto;
+    width: 180px;
+    height: 180px
+}
+
+.passport-pop-wrapper.wechat .qr-tip {
+    margin-top: 20px;
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #666;
+    text-align: center
+}
+
+.passport-pop-wrapper.wechat .scan-content {
+    height: 217px
+}
+
+.passport-pop-wrapper.wechat .scan-success {
+    display: none;
+    position: absolute;
+    top: 88px;
+    left: 130px;
+    width: 186px;
+    height: 186px;
+    color: #fff
+}
+
+.passport-pop-wrapper.wechat .scan-success-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.passport-pop-wrapper.wechat .scan-success-content:before {
+    content: "";
+    display: block;
+    width: 85px;
+    height: 85px;
+    margin: auto;
+    background-image: url(//www.lgstatic.com/www/static/common/widgets/passport/static/images/popup-sprite_e5ea04f.png);
+    background-repeat: no-repeat;
+    background-position: -20px -156px
+}
+
+.passport-pop-wrapper.wechat .scan-success-content .text {
+    margin: 27px 0;
+    font-size: 22px;
+    color: #00B38A
+}
+
+.passport-pop-wrapper.wechat .register-btn {
+    margin-top: 60px
+}
+
+.passport-pop-wrapper .verify_tips_main {
+    display: none
+}
+
+.passport-pop-wrapper .verify_tips_count_down {
+    display: none
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .passport-pop-wrapper.account .change-btn {
+        background-size: 256px 256px;
+        background-position: -178px -10px
+    }
+
+    .passport-pop-wrapper.account .change-btn:hover {
+        background-position: -178px -72px
+    }
+
+    .passport-pop-wrapper .logo {
+        background-size: 256px 256px;
+        background-position: -62.5px -78px
+    }
+
+    .passport-pop-wrapper.wechat .change-btn {
+        background-size: 256px 256px;
+        background-position: -105px -130px
+    }
+
+    .passport-pop-wrapper.wechat .change-btn:hover {
+        background-position: -105px -192px
+    }
+
+    .passport-pop-wrapper.wechat .scan-success-content:before {
+        background-size: 256px 256px;
+        background-position: -10px -134px
+    }
+}
+
+.area_code_list + input {
+    padding-left: 100px
+}
+
+.area_code {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    float: left;
+    width: 50px;
+    height: 50px;
+    padding-right: 20px;
+    line-height: 50px;
+    cursor: default;
+    padding-left: 18px
+}
+
+.area_code:after {
+    position: absolute;
+    right: 8px;
+    top: 24px;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    border-color: #9c9c9c transparent transparent
+}
+
+.area_code.active:after {
+    transform: scale(-1)
+}
+
+.area_code_list {
+    position: absolute;
+    left: 0;
+    top: 46px;
+    z-index: 10;
+    display: none;
+    width: 200px;
+    max-height: 288px;
+    border: 1px solid #eee;
+    overflow-y: scroll;
+    background-color: #fff
+}
+
+.area_code_list dl {
+    line-height: 36px;
+    cursor: default
+}
+
+.area_code_list dt {
+    padding: 0 12px;
+    color: #999;
+    background-color: #FBFBFB
+}
+
+.area_code_list dd {
+    padding: 0 12px;
+    color: #555
+}
+
+.area_code_list dd:hover {
+    background-color: #F4F4F4;
+    color: #00b38a
+}
+
+.area_code_list dd span {
+    float: right
+}
+
+.area_code_list .tips {
+    color: #B5B5B5;
+    padding: 40px 12px
+}
+
+/*!community/modules/index/recommended-topic/main.less*/
+.recommended_topic .recommended_header {
+    position: relative;
+    margin-bottom: 20px
+}
+
+.recommended_topic .recommended_header > h4 {
+    margin-top: 8px;
+    padding-bottom: 8px;
+    border-top: 1px solid #ededed;
+    text-align: center
+}
+
+.recommended_topic .recommended_header > h4 span {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: -8px;
+    height: 14px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 14px;
+    color: #777;
+    text-align: center;
+    background-color: #fff;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
+.recommended_topic a.recommended_change_btn {
+    position: absolute;
+    right: 0;
+    top: -8px;
+    height: 16px;
+    padding-left: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #00b38a;
+    background-color: #fff
+}
+
+.recommended_topic a.recommended_change_btn:hover {
+    color: #00a57f
+}
+
+.recommended_topic .recommended_loading {
+    margin: 0 auto
+}
+
+.recommended_topic ul {
+    height: 74px;
+    overflow: hidden
+}
+
+.recommended_topic ul > li {
+    float: left;
+    width: 177px;
+    height: 74px
+}
+
+.recommended_topic .topic_img_link {
+    margin-right: 12px
+}
+
+.recommended_topic .topic_img {
+    display: block;
+    box-sizing: border-box;
+    width: 74px;
+    height: 74px;
+    border-radius: 3px
+}
+
+.recommended_topic .topic_name {
+    display: block;
+    height: 24px;
+    padding-top: 8px;
+    margin-left: 86px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    line-height: 24px;
+    text-align: left
+}
+
+.recommended_topic .topic_name a {
+    font-size: 14px;
+    color: #333
+}
+
+.recommended_topic .topic_name a:hover {
+    color: #00b38a;
+    text-decoration: none
+}
+
+.recommended_topic .topic_name a:before {
+    content: ""
+}
+
+.recommended_topic .topic_name a:after {
+    content: ""
+}
+
+.recommended_topic .follow_btn {
+    display: block;
+    width: 52px;
+    min-width: 52px;
+    height: 24px;
+    margin-left: 86px;
+    padding: 0;
+    line-height: 24px;
+    color: #fff
+}
+
+.recommended_topic .follow_btn i {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    overflow: hidden;
+    text-indent: -999em;
+    vertical-align: middle;
+    background: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-follow-hover_8577283.png) center center no-repeat
+}
+
+.recommended_topic .follow_btn .loading2 {
+    display: inline-block;
+    vertical-align: middle;
+    background: #00b38a;
+    background: -moz-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #fff 10%, rgba(255, 255, 255, 0) 42%)
+}
+
+.recommended_topic .follow_btn .loading2:before {
+    background: #00b38a
+}
+
+.recommended_topic .follow_btn .loading2:after {
+    background: #00b38a
+}
+
+.recommended_topic .has_follow .loading2:before {
+    background: #d4d6d9
+}
+
+.recommended_topic .has_follow .loading2:after {
+    background: #d4d6d9
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .recommended_topic .follow_btn i {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-follow-hover@2x_525b2b4.png);
+        background-size: 12px 12px
+    }
+}
+
+/*!common/components/jquery-colorbox-custom/jquery-colorbox.css*/
+@charset "utf-8";
+#colorbox, #cboxOverlay, #cboxWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+    clear: left
+}
+
+#cboxContent {
+    position: relative
+}
+
+#cboxLoadedContent {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+#cboxTitle {
+    margin: 0
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+    cursor: pointer
+}
+
+.cboxPhoto {
+    float: left;
+    margin: auto;
+    border: 0;
+    display: block;
+    max-width: none;
+    -ms-interpolation-mode: bicubic
+}
+
+.cboxIframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box
+}
+
+#cboxOverlay {
+    background: url(//www.lgstatic.com/www/static/common/components/jquery-colorbox-custom/img/overlay_c2e5558.png) repeat 0 0
+}
+
+#colorbox {
+    outline: 0
+}
+
+
+#cboxContent {
+    overflow: hidden;
+    background: #fff
+}
+
+.cboxIframe {
+    background: #fff
+}
+
+#cboxError {
+    padding: 50px;
+    border: 1px solid #ccc
+}
+
+#cboxLoadedContent {
+    margin-top: 44px
+}
+
+#cboxTitle {
+    font-size: 18px;
+    color: #fff;
+    background: #00b38a;
+    height: 44px;
+    width: 100%;
+    text-indent: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 44px
+}
+
+#cboxTitle span {
+    padding-left: 15px
+}
+
+#cboxCurrent {
+    position: absolute;
+    bottom: 4px;
+    left: 58px;
+    color: #949494
+}
+
+#cboxLoadingOverlay {
+    background: url(//www.lgstatic.com/www/static/common/components/jquery-colorbox-custom/img/loading_background_acf427e.png) no-repeat center center
+}
+
+#cboxLoadingGraphic {
+    background: url(//www.lgstatic.com/www/static/common/components/jquery-colorbox-custom/img/loading_e6611f8.gif) no-repeat center center
+}
+
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    background: 0
+}
+
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+    outline: 0
+}
+
+#cboxSlideshow {
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+    color: #0092ef
+}
+
+#cboxPrevious {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(//www.lgstatic.com/www/static/common/components/jquery-colorbox-custom/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxPrevious:hover {
+    background-position: -75px -25px
+}
+
+#cboxNext {
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+    background: url(//www.lgstatic.com/www/static/common/components/jquery-colorbox-custom/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxNext:hover {
+    background-position: -50px -25px
+}
+
+#cboxClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: url(//www.lgstatic.com/www/static/common/components/jquery-colorbox-custom/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxClose:hover {
+}
+
+.cboxIE #cboxTopLeft, .cboxIE #cboxTopCenter, .cboxIE #cboxTopRight, .cboxIE #cboxBottomLeft, .cboxIE #cboxBottomCenter, .cboxIE #cboxBottomRight, .cboxIE #cboxMiddleLeft, .cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF)
+}
+
+/*!community/modules/common/user-card-float/main.less*/
+.user_card_float_wrap {
+    position: relative
+}
+
+.user_card_float_wrap:hover .user_card_float {
+    display: block
+}
+
+.user_card_float {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 1em;
+    padding-top: 13px;
+    overflow: hidden
+}
+
+.user_card_float_box {
+    position: relative;
+    width: 232px;
+    padding: 20px;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    background-color: #fff;
+    z-index: 999
+}
+
+.user_card_float_box p + p {
+    margin: 0
+}
+
+.user_card_float_box .deck_out {
+    position: absolute;
+    border: solid 10px transparent;
+    border-bottom: solid 10px #ededed;
+    left: 20px;
+    top: -21px
+}
+
+.user_card_float_box .deck_in {
+    position: absolute;
+    border: solid 10px transparent;
+    border-bottom: solid 10px #fff;
+    left: 20px;
+    top: -20px
+}
+
+.user_card_float_box .avatar {
+    width: 54px;
+    height: 54px
+}
+
+.user_card_float_box .avatar img {
+    display: block;
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    border-radius: 27px
+}
+
+.user_card_float_box .userinfo_base {
+    height: 30px;
+    margin-left: 68px
+}
+
+.user_card_float_box .userinfo_base a {
+    font-size: 18px;
+    line-height: 30px;
+    color: #333
+}
+
+.user_card_float_box .userinfo_base a span {
+    display: inline-block;
+    max-width: 136px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    vertical-align: middle
+}
+
+.user_card_float_box .userinfo_base i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-indent: -999em;
+    border-radius: 2px
+}
+
+.user_card_float_box .userinfo_base i.boy {
+    background: url(//www.lgstatic.com/www/static/community/modules/common/user-card-float/img/user-icon-boy-v1_f56b6f0.png) center center no-repeat
+}
+
+.user_card_float_box .userinfo_base i.girl {
+    background: url(//www.lgstatic.com/www/static/community/modules/common/user-card-float/img/user-icon-girl-v1_45f3bf2.png) center center no-repeat
+}
+
+.user_card_float_box .userinfo_edit {
+    position: absolute;
+    right: 20px;
+    top: 47.5px;
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 1;
+    color: #00b38a;
+    background: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-edit_f904e19.png) left center no-repeat
+}
+
+.user_card_float_box .userinfo_edit:hover {
+    color: #00a57f
+}
+
+.user_card_float_box .userinfo_job {
+    height: 24px;
+    margin-left: 68px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    white-space: pre
+}
+
+.user_card_float_box .userinfo_job a {
+    color: #333
+}
+
+.user_card_float_box .userinfo_intro {
+    height: 24px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    white-space: pre
+}
+
+.user_card_float_box .userinfo_intro a {
+    color: #999
+}
+
+.user_card_float_box .user_status {
+    width: 272px;
+    margin: 0 -20px;
+    line-height: 1
+}
+
+.user_card_float_box .user_status li {
+    float: left;
+    width: 90px;
+    height: 22px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #999;
+    text-align: center
+}
+
+.user_card_float_box .user_status li a {
+    color: #999
+}
+
+.user_card_float_box .user_status li em {
+    display: block;
+    position: relative;
+    top: -10px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 700
+}
+
+.user_card_float_box .user_status li + li {
+    border-left: 1px solid #ededed
+}
+
+.user_card_float_box .user_follow_btn {
+    display: block;
+    margin: 20px auto 0;
+    width: 88px
+}
+
+.user_card_float_box .user_follow_btn i {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    text-indent: -999em;
+    vertical-align: middle;
+    background: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-follow_83fdc9f.png) center center no-repeat
+}
+
+.user_card_float_box .btn .loading2 {
+    display: inline-block;
+    vertical-align: middle;
+    background: #fff;
+    background: -moz-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #fff 10%, rgba(255, 255, 255, 0) 42%)
+}
+
+.user_card_float_box .btn .loading2:before {
+    background: #fff
+}
+
+.user_card_float_box .btn .loading2:after {
+    background: #00b38a
+}
+
+.user_card_float_box .btn:hover .loading2:after {
+    background: #00a57f
+}
+
+.user_card_float_box .btn_cancel .loading2:after {
+    background: #d4d6d9
+}
+
+.user_card_float_box .btn_cancel:hover .loading2:after {
+    background: #d4d6d9
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .user_card_float .userinfo_base i.boy {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/user-card-float/img/user-icon-boy-v1@2x_49792f9.png);
+        background-size: 16px 16px
+    }
+
+    .user_card_float .userinfo_base i.girl {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/user-card-float/img/user-icon-girl-v1@2x_f8ca614.png);
+        background-size: 16px 16px
+    }
+
+    .user_card_float .userinfo_edit {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-edit@2x_b5bb3d2.png);
+        background-size: 14px 14px
+    }
+
+    .user_card_float .user_follow_btn i {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-follow@2x_f61382b.png);
+        background-size: 12px 12px
+    }
+}
+
+/*!community/modules/common/user-card/main.less*/
+.user_card {
+    width: 100%
+}
+
+.user_card p + p {
+    margin: 0
+}
+
+.user_card_login {
+    position: relative;
+    padding-bottom: 30px
+}
+
+.user_card_login .avatar {
+    width: 96px;
+    margin: 0 auto
+}
+
+.user_card_login .avatar img {
+    display: block;
+    width: 96px;
+    height: 96px;
+    overflow: hidden;
+    border-radius: 48px;
+    background-color: #f0f0f0
+}
+
+.user_card_login p {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center
+}
+
+.user_card_login p.title {
+    margin-top: 12px;
+    margin-bottom: 2px
+}
+
+.user_card_login p.subtitle {
+    margin-bottom: 12px
+}
+
+.user_card_login .toolbar {
+    text-align: center
+}
+
+.user_card_login .toolbar a.btn {
+    width: 106px;
+    height: 34px;
+    font-size: 15px;
+    line-height: 34px
+}
+
+.user_card_login .toolbar a.btn + a.btn {
+    margin-left: 12px;
+    line-height: 32px
+}
+
+.user_card_normal {
+    position: relative;
+    padding-bottom: 30px
+}
+
+.user_card_normal .userinfo_base .avatar {
+    width: 96px;
+    margin: 0 auto 20px
+}
+
+.user_card_normal .userinfo_base .avatar img {
+    display: block;
+    width: 96px;
+    height: 96px;
+    overflow: hidden;
+    border-radius: 48px;
+    background-color: #f0f0f0
+}
+
+.user_card_normal .userinfo_base .username {
+    height: 28px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-align: center
+}
+
+.user_card_normal .userinfo_base .username a {
+    font-size: 18px;
+    line-height: 28px;
+    color: #333
+}
+
+.user_card_normal .userinfo_base .username a span {
+    display: inline-block;
+    max-width: 210px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    vertical-align: middle
+}
+
+.user_card_normal .userinfo_base .username i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-indent: -999em;
+    border-radius: 2px
+}
+
+.user_card_normal .userinfo_base .username i.boy {
+    background: url(//www.lgstatic.com/www/static/community/modules/common/user-card/img/user-icon-boy-v1_f56b6f0.png) center center no-repeat
+}
+
+.user_card_normal .userinfo_base .username i.girl {
+    background: url(//www.lgstatic.com/www/static/community/modules/common/user-card/img/user-icon-girl-v1_45f3bf2.png) center center no-repeat
+}
+
+.user_card_normal .userinfo_edit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-left: 16px;
+    font-size: 14px;
+    line-height: 14px;
+    color: #00b38a;
+    background: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-edit_f904e19.png) left center no-repeat
+}
+
+.user_card_normal .userinfo_edit:hover {
+    background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-edit_f904e19.png);
+    color: #00a57f
+}
+
+.user_card_normal .userinfo_edit_tips {
+    position: absolute;
+    top: -48px;
+    right: 0;
+    width: 206px;
+    height: 34px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #777;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 3px 3px -3px #ededed
+}
+
+.user_card_normal .userinfo_edit_tips a.edit_tips_close {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 10px;
+    overflow: hidden;
+    text-indent: -999em;
+    vertical-align: text-top;
+    background: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-close-tips-grey_9795baf.png) center center no-repeat;
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    -o-transition: -o-transform .5s;
+    -ms-transition: -ms-transform .5s;
+    transition: transform .5s
+}
+
+.user_card_normal .userinfo_edit_tips a.edit_tips_close:hover {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.user_card_normal .userinfo_edit_tips .deck_in {
+    position: absolute;
+    border: solid 7px transparent;
+    border-width: 6px 7px;
+    border-top-color: #fff;
+    right: 12px;
+    bottom: -12px
+}
+
+.user_card_normal .userinfo_edit_tips .deck_out {
+    position: absolute;
+    border: solid 7px transparent;
+    border-width: 6px 7px;
+    border-top-color: #ededed;
+    right: 12px;
+    bottom: -13px
+}
+
+.user_card_normal .userinfo_job {
+    height: 24px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    white-space: pre
+}
+
+.user_card_normal .userinfo_job a {
+    color: #333
+}
+
+.user_card_normal .userinfo_intro {
+    max-height: 46px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 23px;
+    color: #777;
+    text-align: center;
+    word-wrap: normal;
+    white-space: pre-wrap
+}
+
+.user_card_normal .userinfo_intro a {
+    color: #777
+}
+
+.user_card_normal .user_status {
+    margin-bottom: 35px;
+    line-height: 1
+}
+
+.user_card_normal .user_status li {
+    float: left;
+    width: 77px;
+    height: 41px;
+    font-size: 13px;
+    color: #999;
+    text-align: center
+}
+
+.user_card_normal .user_status li a {
+    color: #999
+}
+
+.user_card_normal .user_status li em {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #333
+}
+
+.user_card_normal .user_status li + li {
+    border-left: 1px solid #ededed
+}
+
+.user_card_normal a.ask_btn {
+    display: block;
+    height: 46px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 46px
+}
+
+.user_card_edit {
+    display: none;
+    position: relative;
+    padding-bottom: 30px
+}
+
+.user_card_edit .avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 40px
+}
+
+.user_card_edit .avatar img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    cursor: pointer
+}
+
+.user_card_edit .avatar .avatar_upload {
+    display: none
+}
+
+.user_card_edit input[type=text], .user_card_edit textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 14px;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    transition: border .2s ease-in 0s
+}
+
+.user_card_edit input[type=text]:focus, .user_card_edit textarea:focus {
+    color: #333;
+    border-color: #00b38a
+}
+
+.user_card_edit textarea {
+    height: 56px;
+    padding: 7px 12px;
+    line-height: 20px;
+    resize: none
+}
+
+.user_card_edit .input_box {
+    margin-bottom: 20px;
+    position: relative
+}
+
+.user_card_edit .input_box em.error {
+    position: absolute;
+    right: 13px;
+    bottom: 13px;
+    display: none;
+    font-size: 14px;
+    line-height: 14px;
+    color: #fd470c;
+    background-color: #fff;
+    box-shadow: 0 0 2px 2px #fff
+}
+
+.user_card_edit .userinfo_sex {
+    height: 20px;
+    line-height: 20px
+}
+
+.user_card_edit .userinfo_sex .magic-radio + label, .user_card_edit .userinfo_sex .magic-checkbox + label {
+    margin-right: 40px;
+    color: #555
+}
+
+.user_card_edit .userinfo_sex .magic-radio + label:hover, .user_card_edit .userinfo_sex .magic-checkbox + label:hover {
+    color: #333
+}
+
+.user_card_edit .userinfo_sex .magic-radio:checked + label, .user_card_edit .userinfo_sex .magic-checkbox:checked + label {
+    color: #333
+}
+
+.user_card_edit .toolbar {
+    text-align: center
+}
+
+.user_card_edit .toolbar .btn {
+    width: 90px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px
+}
+
+.user_card_edit .toolbar .btn + .btn {
+    margin-left: 30px
+}
+
+.user_card_edit .toolbar .btn_cancel {
+    color: #555;
+    background-color: #fff
+}
+
+.user_card_edit .toolbar .btn_cancel:hover {
+    color: #333
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .user_card_normal .userinfo_base .username i.boy {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/user-card/img/user-icon-boy-v1@2x_49792f9.png);
+        background-size: 16px 16px
+    }
+
+    .user_card_normal .userinfo_base .username i.girl {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/user-card/img/user-icon-girl-v1@2x_f8ca614.png);
+        background-size: 16px 16px
+    }
+
+    .user_card_normal .userinfo_edit {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-edit@2x_b5bb3d2.png);
+        background-size: 14px 14px
+    }
+
+    .user_card_normal .userinfo_edit:hover {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-edit@2x_b5bb3d2.png)
+    }
+
+    .user_card_normal .userinfo_edit_tips a.edit_tips_close {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-close-tips-grey@2x_4616741.png);
+        background-size: 12px 12px
+    }
+}
+
+/*!dep/jquery.imgcutter/dist/jquery.imgcutter.css*/
+.imgcutter-previewr {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    cursor: move
+}
+
+.imgcutter-selector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -125px;
+    margin-left: -125px;
+    width: 200px;
+    height: 200px
+}
+
+.imgcutter-shadow {
+    z-index: 3;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5) inset;
+    border: 1px solid #ddd \9
+}
+
+.imgcutter-inner {
+    z-index: 2;
+    overflow: hidden
+}
+
+.imgcutter-outer {
+    z-index: 1;
+    opacity: .25;
+    filter: alpha(opacity=25)
+}
+
+.imgcutter-photo {
+    position: absolute
+}
+
+.imgcutter-slider {
+    position: relative;
+    width: 200px;
+    height: 6px;
+    background-color: #eee;
+    margin-top: 20px;
+    margin-left: 50px
+}
+
+.imgcutter-slider-handler {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    border-radius: 15px;
+    background-color: #00b38a;
+    cursor: pointer
+}
+
+.imgcutter-slider-reduce {
+    position: absolute;
+    top: -8px;
+    left: -38px;
+    width: 23px;
+    height: 23px;
+    background-image: url(//www.lgstatic.com/www/static/dep/jquery.imgcutter/dist/img/reduce_0228bc8.png)
+}
+
+.imgcutter-slider-enlarge {
+    position: absolute;
+    top: -8px;
+    right: -38px;
+    width: 23px;
+    height: 23px;
+    background-image: url(//www.lgstatic.com/www/static/dep/jquery.imgcutter/dist/img/enlarge_c6d8248.png)
+}
+
+/*!common/components/imgcutter/main.less*/
+#cutterDialog {
+    width: 300px;
+    padding: 30px 25px;
+    overflow: hidden
+}
+
+#cutterContainer {
+    margin-bottom: 50px
+}
+
+.cutter_btn {
+    float: right;
+    height: 38px;
+    padding: 0 20px;
+    border: 0;
+    line-height: 38px;
+    font-size: 20px;
+    cursor: pointer
+}
+
+#cutter_ok {
+    color: #fff;
+    background: #00b38a
+}
+
+#cutter_cancel {
+    color: #333;
+    background: #fff
+}
+
+#cutterError {
+    text-align: center;
+    font-size: 18px
+}
+
+#cutterError i {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 5px;
+    right: 5px;
+    background: url(//www.lgstatic.com/www/static/common/components/imgcutter/img/error_3b0bfd1.png) no-repeat
+}
+
+/*!common/components/dialog/main.css*/
+#colorbox, #cboxOverlay, #cboxWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%
+}
+
+#cboxMiddleLeft, #cboxBottomLeft {
+    clear: left
+}
+
+#cboxContent {
+    position: relative
+}
+
+#cboxLoadedContent {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch
+}
+
+#cboxTitle {
+    margin: 0
+}
+
+#cboxLoadingOverlay, #cboxLoadingGraphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow {
+    cursor: pointer
+}
+
+.cboxPhoto {
+    float: left;
+    margin: auto;
+    border: 0;
+    display: block;
+    max-width: none;
+    -ms-interpolation-mode: bicubic
+}
+
+.cboxIframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0
+}
+
+#colorbox, #cboxContent, #cboxLoadedContent {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box
+}
+
+#cboxOverlay {
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/overlay_c2e5558.png) repeat 0 0
+}
+
+#colorbox {
+    outline: 0
+}
+
+#cboxTopLeft {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxTopRight {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxBottomLeft {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxBottomRight {
+    width: 13px;
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxMiddleLeft {
+    width: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxMiddleRight {
+    width: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxTopCenter {
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxBottomCenter {
+    height: 13px;
+    background: #3a3a3a;
+    opacity: .5;
+    filter: alpha(opacity=50)
+}
+
+#cboxContent {
+    overflow: hidden;
+    background: #fff
+}
+
+.cboxIframe {
+    background: #fff
+}
+
+#cboxError {
+    padding: 50px;
+    border: 1px solid #ccc
+}
+
+#cboxLoadedContent {
+    margin-top: 44px
+}
+
+#cboxTitle {
+    font-size: 18px;
+    color: #fff;
+    background: #00b38a;
+    height: 44px;
+    width: 100%;
+    text-indent: 1em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 44px
+}
+
+#cboxTitle span {
+    padding-left: 15px
+}
+
+#cboxCurrent {
+    position: absolute;
+    bottom: 4px;
+    left: 58px;
+    color: #949494
+}
+
+#cboxLoadingOverlay {
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/loading_background_acf427e.png) no-repeat center center
+}
+
+#cboxLoadingGraphic {
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/loading_e6611f8.gif) no-repeat center center
+}
+
+#cboxPrevious, #cboxNext, #cboxSlideshow, #cboxClose {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    background: 0
+}
+
+#cboxPrevious:active, #cboxNext:active, #cboxSlideshow:active, #cboxClose:active {
+    outline: 0
+}
+
+#cboxSlideshow {
+    position: absolute;
+    bottom: 4px;
+    right: 30px;
+    color: #0092ef
+}
+
+#cboxPrevious {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxPrevious:hover {
+    background-position: -75px -25px
+}
+
+#cboxNext {
+    position: absolute;
+    bottom: 0;
+    left: 27px;
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+#cboxNext:hover {
+    background-position: -50px -25px
+}
+
+#cboxClose {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/controls_74ddda3.png) no-repeat;
+    width: 19px;
+    height: 19px;
+    text-indent: -9999px
+}
+
+.cboxIE #cboxTopLeft, .cboxIE #cboxTopCenter, .cboxIE #cboxTopRight, .cboxIE #cboxBottomLeft, .cboxIE #cboxBottomCenter, .cboxIE #cboxBottomRight, .cboxIE #cboxMiddleLeft, .cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF, endColorstr=#00FFFFFF)
+}
+
+.dialog_container {
+    padding: 40px;
+    text-align: center
+}
+
+.dialog_body {
+    padding: 0;
+    text-align: left;
+    line-height: 28px;
+    font-size: 16px;
+    color: #555
+}
+
+.dialog_loading {
+    width: 100%;
+    height: 36px;
+    margin-top: 34px;
+    background: url(//www.lgstatic.com/www/static/common/components/dialog/img/loading_e6611f8.gif) no-repeat center center
+}
+
+.dialog_btn {
+    height: 38px;
+    padding: 0 20px;
+    border: 0;
+    margin-top: 34px;
+    line-height: 38px;
+    font-size: 20px;
+    cursor: pointer
+}
+
+.dialog_ok {
+    color: #fff;
+    background: #00b38a
+}
+
+.dialog_cancel {
+    color: #555;
+    background: #fff
+}
+
+/*!community/modules/common/new-question-btn/main.less*/
+.new_question_popup_wrap {
+    display: none
+}
+
+.new_question_popup_box {
+    width: 452px;
+    padding: 36px 24px 36px 16px;
+    overflow: visible
+}
+
+.new_question_popup_box .form_list {
+    margin-bottom: 10px
+}
+
+.new_question_popup_box .form_list dt {
+    float: left;
+    width: 72px;
+    min-height: 24px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 24px;
+    color: #333;
+    text-align: right;
+    clear: left
+}
+
+.new_question_popup_box .form_list dt i {
+    color: #fd470c
+}
+
+.new_question_popup_box .form_list dd {
+    float: left;
+    position: relative;
+    width: 360px;
+    min-height: 40px;
+    margin-bottom: 20px
+}
+
+.new_question_popup_box .form_list dd input[type=text], .new_question_popup_box .form_list dd textarea {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 24px;
+    color: #555;
+    border: 0
+}
+
+.new_question_popup_box .form_list dd input[type=text]:focus, .new_question_popup_box .form_list dd textarea:focus {
+    color: #333
+}
+
+.new_question_popup_box .form_list dd input[type=text]::-webkit-input-placeholder, .new_question_popup_box .form_list dd textarea::-webkit-input-placeholder {
+    color: #777
+}
+
+.new_question_popup_box .form_list dd input[type=text]::-ms-input-placeholder, .new_question_popup_box .form_list dd textarea::-ms-input-placeholder {
+    color: #777
+}
+
+.new_question_popup_box .form_list dd input[type=text]:-ms-input-placeholder, .new_question_popup_box .form_list dd textarea:-ms-input-placeholder {
+    color: #777
+}
+
+.new_question_popup_box .form_list dd input[type=text]::-moz-placeholder, .new_question_popup_box .form_list dd textarea::-moz-placeholder {
+    color: #777
+}
+
+.new_question_popup_box .form_list dd input[type=text]:-moz-placeholder, .new_question_popup_box .form_list dd textarea:-moz-placeholder {
+    color: #777
+}
+
+.new_question_popup_box .form_list dd textarea {
+    resize: none
+}
+
+.new_question_popup_box .form_list dd .input_box {
+    position: relative;
+    width: 338px;
+    min-height: 24px;
+    padding: 7px 10px;
+    border: 1px solid #ededed;
+    border-radius: 3px
+}
+
+.new_question_popup_box .form_list dd .input_box.focus {
+    border-color: #00b38a
+}
+
+.new_question_popup_box .form_list dd .input_placeholder {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 7px;
+    bottom: 7px;
+    display: none;
+    font-family: "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;
+    font-size: 14px;
+    line-height: 24px;
+    color: #777
+}
+
+.new_question_popup_box .form_list dd p.tips {
+    padding-left: 12px;
+    font-size: 12px;
+    line-height: 22px;
+    color: #cdcdcd
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    z-index: 1;
+    width: 358px;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #ededed;
+    border-radius: 3px
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list {
+    max-height: 160px;
+    overflow: hidden
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li {
+    font-size: 14px;
+    line-height: 39px
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li a {
+    display: block;
+    padding: 0 12px;
+    height: 39px;
+    overflow: hidden;
+    color: #333
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li .question_name {
+    float: left;
+    max-width: 244px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li .answer_num {
+    float: right;
+    max-width: 84px;
+    margin-left: 6px;
+    font-size: 12px;
+    text-align: right
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li .answer_num em {
+    color: #00b38a
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li:hover, .new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li.active {
+    color: #fff;
+    background-color: #00b38a
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li:hover a, .new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li.active a {
+    color: #fff
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li:hover a .answer_num em, .new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li.active a .answer_num em {
+    color: #fff
+}
+
+.new_question_popup_box .form_list .question_autoComplete_box .question_autoComplete_list li + li {
+    border-top: 1px dashed #ededed
+}
+
+.new_question_popup_box .form_list .new_question_content textarea {
+    overflow: auto;
+    height: 168px
+}
+
+.new_question_popup_box .form_list .label_belongTopicIds, .new_question_popup_box .form_list .new_question_belongTopicIds {
+    margin-bottom: 5px
+}
+
+.new_question_popup_box .form_list .topic_selected_list li {
+    float: left;
+    display: inline-block;
+    height: 24px;
+    margin-right: 12px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    background-color: #00b38a;
+    border-radius: 3px
+}
+
+.new_question_popup_box .form_list .topic_selected_list li:hover {
+    background-color: #00a57f
+}
+
+.new_question_popup_box .form_list .topic_selected_list li input[type=checkbox] {
+    display: none
+}
+
+.new_question_popup_box .form_list .topic_selected_list li em {
+    display: inline-block;
+    max-width: 56px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal
+}
+
+.new_question_popup_box .form_list .topic_selected_list li i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 7px;
+    overflow: hidden;
+    text-indent: -999em;
+    cursor: pointer;
+    background-image: url(//www.lgstatic.com/www/static/community/modules/common/new-question-btn/img/delete-mark_2ae931c.png)
+}
+
+.new_question_popup_box .form_list .topic_search {
+    overflow: hidden;
+    position: relative
+}
+
+.new_question_popup_box .form_list .topic_search .input_placeholder {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0
+}
+
+.new_question_popup_box .form_list .topic_search input[disabled] {
+    cursor: not-allowed
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    z-index: 1;
+    width: 358px;
+    padding: 10px 0;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid #ededed;
+    border-radius: 3px
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box .topic_autoComplete_list {
+    max-height: 108px;
+    overflow-y: auto
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box .topic_autoComplete_list li {
+    padding: 0 24px;
+    font-size: 14px;
+    line-height: 36px;
+    color: #555
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box .topic_autoComplete_list li:hover, .new_question_popup_box .form_list .topic_autoComplete_box .topic_autoComplete_list li.active {
+    color: #333;
+    background-color: #ededed
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box .topic_autoComplete_list li:hover {
+    cursor: default
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box a.topic_autoComplete_new_btn {
+    display: block;
+    padding: 0 24px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #00b38a
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box a.topic_autoComplete_new_btn:hover {
+    font-weight: 700;
+    color: #00a57f
+}
+
+.new_question_popup_box .form_list .topic_autoComplete_box a.topic_autoComplete_new_btn i {
+    font-weight: 700
+}
+
+.new_question_popup_box .form_list .label_askToIds {
+    display: none
+}
+
+.new_question_popup_box .form_list .new_question_askToIds {
+    display: none;
+    margin-bottom: 15px
+}
+
+.new_question_popup_box .form_list .target_list {
+    min-height: 24px;
+    padding: 4px 0;
+    font-size: 24px;
+    line-height: 32px
+}
+
+.new_question_popup_box .form_list .target_list li {
+    display: inline-block;
+    vertical-align: text-top
+}
+
+.new_question_popup_box .form_list .target_list li input[type=checkbox] {
+    display: none
+}
+
+.new_question_popup_box .form_list .target_list li input[type=checkbox] + label {
+    display: block;
+    position: relative;
+    height: 22px;
+    margin: 1px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 22px;
+    color: #555;
+    border: 1px solid #ededed;
+    border-radius: 12px
+}
+
+.new_question_popup_box .form_list .target_list li input[type=checkbox]:hover + label {
+    height: 22px;
+    margin: 0;
+    padding: 0 10px;
+    line-height: 22px;
+    color: #333;
+    border: 2px solid #00b38a;
+    border-radius: 12px
+}
+
+.new_question_popup_box .form_list .target_list li input[type=checkbox]:checked + label {
+    height: 22px;
+    margin: 0;
+    padding: 0 10px;
+    line-height: 22px;
+    color: #333;
+    border: 2px solid #00b38a;
+    border-radius: 12px
+}
+
+.new_question_popup_box .form_list .target_list li input[type=checkbox]:checked + label:before {
+    position: absolute;
+    right: -6px;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    content: '';
+    background-color: #00b38a;
+    background-image: url(//www.lgstatic.com/www/static/community/modules/common/new-question-btn/img/check-mark_a83741d.png);
+    border-radius: 8px
+}
+
+.new_question_popup_box .new_question_toolbar {
+    padding-left: 92px;
+    line-height: 45px
+}
+
+.new_question_popup_box .new_question_toolbar .new_question_submit {
+    width: 100px;
+    height: 45px;
+    margin-right: 24px;
+    font-size: 16px;
+    line-height: 45px
+}
+
+.new_question_popup_box .new_question_toolbar .new_question_enable_anonymous + label {
+    font-size: 14px;
+    color: #999
+}
+
+a.popupTjPlaceholder {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    text-indent: -999em
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .new_question_popup_box .form_list .topic_selected_list li i {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/new-question-btn/img/delete-mark@2x_666b964.png);
+        background-size: 10px 10px
+    }
+
+    .new_question_popup_box .form_list .target_list li input[type=checkbox]:checked + label:before {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/new-question-btn/img/check-mark@2x_e69629e.png);
+        background-size: 16px 16px
+    }
+}
+
+/*!community/modules/common/ad-side/main.less*/
+.slider {
+    position: relative
+}
+
+.slider .slider_wrap {
+    position: relative;
+    width: 234px;
+    height: 200px;
+    overflow: hidden
+}
+
+.slider .slider_wrap > a {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 234px;
+    height: 200px
+}
+
+.slider .slider_wrap > a img {
+    display: block;
+    width: 234px;
+    height: 200px
+}
+
+.slider .slider_wrap > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 234px;
+    height: 200px
+}
+
+.slider .slider_nav {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    z-index: 1
+}
+
+.slider .slider_nav li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin-left: 6px;
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.slider .slider_nav li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-indent: -999em;
+    background-color: rgba(255, 255, 255, .7);
+    -webkit-transition: background-color .8s ease;
+    -moz-transition: background-color .8s ease;
+    -o-transition: background-color .8s ease;
+    -ms-transition: background-color .8s ease;
+    transition: background-color .8s ease
+}
+
+.slider .slider_nav li a:hover {
+    background-color: rgba(0, 179, 138, .8)
+}
+
+.slider .slider_nav li.current a {
+    background-color: rgba(0, 179, 138, .8)
+}
+
+/*!community/modules/common/share/main.less*/
+.share_popup_box {
+    display: none;
+    position: absolute;
+    border: 3px solid #00b38a;
+    border-radius: 6px;
+    background-color: #fff;
+    z-index: 9999
+}
+
+.share_popup_box .popup_box_wrap {
+    padding: 20px 20px 12px
+}
+
+.share_popup_box .wechat_box {
+    width: 128px
+}
+
+.share_popup_box .wechat_box .qrcode_box {
+    width: 120px;
+    height: 120px;
+    margin: 4px 4px 12px
+}
+
+.share_popup_box .wechat_box .tips {
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #777;
+    text-align: center
+}
+
+.share_popup_box .wechat_box .tips i {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: .5em;
+    overflow: hidden;
+    vertical-align: top;
+    text-indent: -999em;
+    background-image: url(//www.lgstatic.com/www/static/community/modules/common/share/img/icon-wechat_b8bc26e.png)
+}
+
+.share_popup_box .deck_out {
+    position: absolute;
+    left: 50%;
+    top: -24px;
+    margin-left: -12px;
+    border: solid 12px transparent;
+    border-bottom: solid 12px #00b38a
+}
+
+.share_popup_box .deck_in {
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    margin-left: -12px;
+    border: solid 12px transparent;
+    border-bottom: solid 12px #fff
+}
+
+.animated {
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp
+}
+
+@-webkit-keyframes fadeOutDown {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0)
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0)
+    }
+}
+
+.fadeOutDown {
+    -webkit-animation-name: fadeOutDown;
+    animation-name: fadeOutDown
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .share_popup_box .wechat_box .tips i {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/share/img/icon-wechat@2x_ee00859.png);
+        background-size: 20px 20px
+    }
+}
+
+/*!community/modules/common/support-list-popup/main.less*/
+.support_list_popup_wrap {
+    display: none
+}
+
+.support_list_popup_box {
+    padding: 25px 0
+}
+
+.support_list_popup_box .support_list {
+    width: 440px;
+    max-height: 324px;
+    padding: 0 30px;
+    overflow: auto
+}
+
+.support_list_popup_box .support_list li {
+    position: relative;
+    height: 40px;
+    padding: 12px 96px 12px 0
+}
+
+.support_list_popup_box .support_list li + li {
+    border-top: 1px dashed #ededed
+}
+
+.support_list_popup_box .support_list li .avatar img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 20px
+}
+
+.support_list_popup_box .support_list li p {
+    margin-left: 50px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal
+}
+
+.support_list_popup_box .support_list li .user_name {
+    color: #333
+}
+
+.support_list_popup_box .support_list li .user_position {
+    color: #999
+}
+
+.support_list_popup_box .support_list li .user_introduce {
+    font-size: 12px;
+    color: #999
+}
+
+.support_list_popup_box .support_list li .user_follow_btn {
+    position: absolute;
+    right: 0;
+    top: 17px;
+    width: 86px
+}
+
+.support_list_popup_box .support_list li .user_follow_btn i {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    overflow: hidden;
+    text-indent: -999em;
+    vertical-align: middle;
+    background: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-follow_83fdc9f.png) center center no-repeat
+}
+
+.support_list_popup_box .support_list li .btn .loading2 {
+    display: inline-block;
+    vertical-align: middle;
+    background: #fff;
+    background: -moz-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #fff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #fff 10%, rgba(255, 255, 255, 0) 42%)
+}
+
+.support_list_popup_box .support_list li .btn .loading2:before {
+    background: #fff
+}
+
+.support_list_popup_box .support_list li .btn .loading2:after {
+    background: #00b38a
+}
+
+.support_list_popup_box .support_list li .btn:hover .loading2:after {
+    background: #00a57f
+}
+
+.support_list_popup_box .support_list li .btn_cancel .loading2:after {
+    background: #d4d6d9
+}
+
+.support_list_popup_box .support_list li .btn_cancel:hover .loading2:after {
+    background: #d4d6d9
+}
+
+.support_list_popup_box .support_list > .loading2 {
+    margin: 0 auto
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .support_list_popup_box .support_list li .user_follow_btn i {
+        background-image: url(//www.lgstatic.com/www/static/community/modules/common/img/icon-follow@2x_f61382b.png);
+        background-size: 12px 12px
+    }
+}
+
+/*!community/modules/common/img-zoom-tool/main.less*/
+.editor_parse img {
+    max-width: 60%;
+    cursor: url(//www.lgstatic.com/www/static/community/modules/common/img-zoom-tool/img/cursor-big_ea3f1e7.cur), auto
+}
+
+.editor_parse img.zoomed {
+    max-width: 100%;
+    cursor: url(//www.lgstatic.com/www/static/community/modules/common/img-zoom-tool/img/cursor-small_e2d73ec.cur), auto
+}

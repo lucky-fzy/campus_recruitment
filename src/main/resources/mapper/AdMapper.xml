@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ldu.bs.dao.AdMapper">
+  <resultMap id="BaseResultMap" type="com.ldu.bs.bean.Ad">
+    <id column="ad_id" jdbcType="INTEGER" property="adId" />
+    <result column="ad_img" jdbcType="VARCHAR" property="adImg" />
+    <result column="ad_name" jdbcType="VARCHAR" property="adName" />
+    <result column="ad_describe" jdbcType="VARCHAR" property="adDescribe" />
+    <result column="ad_site" jdbcType="VARCHAR" property="adSite" />
+    <result column="is_online" jdbcType="CHAR" property="isOnline" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ad_id, ad_img, ad_name, ad_describe, ad_site, is_online
+  </sql>
+  <select id="selectByExample" parameterType="com.ldu.bs.bean.AdExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ad
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ad
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ldu.bs.bean.AdExample">
+    delete from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ldu.bs.bean.Ad">
+    insert into ad (ad_id, ad_img, ad_name, 
+      ad_describe, ad_site, is_online
+      )
+    values (#{adId,jdbcType=INTEGER}, #{adImg,jdbcType=VARCHAR}, #{adName,jdbcType=VARCHAR}, 
+      #{adDescribe,jdbcType=VARCHAR}, #{adSite,jdbcType=VARCHAR}, #{isOnline,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ldu.bs.bean.Ad">
+    insert into ad
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adId != null">
+        ad_id,
+      </if>
+      <if test="adImg != null">
+        ad_img,
+      </if>
+      <if test="adName != null">
+        ad_name,
+      </if>
+      <if test="adDescribe != null">
+        ad_describe,
+      </if>
+      <if test="adSite != null">
+        ad_site,
+      </if>
+      <if test="isOnline != null">
+        is_online,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adId != null">
+        #{adId,jdbcType=INTEGER},
+      </if>
+      <if test="adImg != null">
+        #{adImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adName != null">
+        #{adName,jdbcType=VARCHAR},
+      </if>
+      <if test="adDescribe != null">
+        #{adDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="adSite != null">
+        #{adSite,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null">
+        #{isOnline,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ldu.bs.bean.AdExample" resultType="java.lang.Long">
+    select count(*) from ad
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ad
+    <set>
+      <if test="record.adId != null">
+        ad_id = #{record.adId,jdbcType=INTEGER},
+      </if>
+      <if test="record.adImg != null">
+        ad_img = #{record.adImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adName != null">
+        ad_name = #{record.adName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adDescribe != null">
+        ad_describe = #{record.adDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adSite != null">
+        ad_site = #{record.adSite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isOnline != null">
+        is_online = #{record.isOnline,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ad
+    set ad_id = #{record.adId,jdbcType=INTEGER},
+      ad_img = #{record.adImg,jdbcType=VARCHAR},
+      ad_name = #{record.adName,jdbcType=VARCHAR},
+      ad_describe = #{record.adDescribe,jdbcType=VARCHAR},
+      ad_site = #{record.adSite,jdbcType=VARCHAR},
+      is_online = #{record.isOnline,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.bs.bean.Ad">
+    update ad
+    <set>
+      <if test="adImg != null">
+        ad_img = #{adImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adName != null">
+        ad_name = #{adName,jdbcType=VARCHAR},
+      </if>
+      <if test="adDescribe != null">
+        ad_describe = #{adDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="adSite != null">
+        ad_site = #{adSite,jdbcType=VARCHAR},
+      </if>
+      <if test="isOnline != null">
+        is_online = #{isOnline,jdbcType=CHAR},
+      </if>
+    </set>
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ldu.bs.bean.Ad">
+    update ad
+    set ad_img = #{adImg,jdbcType=VARCHAR},
+      ad_name = #{adName,jdbcType=VARCHAR},
+      ad_describe = #{adDescribe,jdbcType=VARCHAR},
+      ad_site = #{adSite,jdbcType=VARCHAR},
+      is_online = #{isOnline,jdbcType=CHAR}
+    where ad_id = #{adId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ldu.bs.dao.AuthenticationMapper">
+  <resultMap id="BaseResultMap" type="com.ldu.bs.bean.Authentication">
+    <id column="authentication_id" jdbcType="INTEGER" property="authenticationId" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="license" jdbcType="VARCHAR" property="license" />
+    <result column="auth_date" jdbcType="VARCHAR" property="authDate" />
+    <result column="isAuth" jdbcType="CHAR" property="isauth" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    authentication_id, company_id, license, auth_date, isAuth
+  </sql>
+  <select id="selectByExample" parameterType="com.ldu.bs.bean.AuthenticationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from authentication
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from authentication
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from authentication
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ldu.bs.bean.AuthenticationExample">
+    delete from authentication
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ldu.bs.bean.Authentication">
+    insert into authentication (authentication_id, company_id, license, 
+      auth_date, isAuth)
+    values (#{authenticationId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{license,jdbcType=VARCHAR}, 
+      #{authDate,jdbcType=VARCHAR}, #{isauth,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ldu.bs.bean.Authentication">
+    insert into authentication
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="authenticationId != null">
+        authentication_id,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="license != null">
+        license,
+      </if>
+      <if test="authDate != null">
+        auth_date,
+      </if>
+      <if test="isauth != null">
+        isAuth,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="authenticationId != null">
+        #{authenticationId,jdbcType=INTEGER},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="license != null">
+        #{license,jdbcType=VARCHAR},
+      </if>
+      <if test="authDate != null">
+        #{authDate,jdbcType=VARCHAR},
+      </if>
+      <if test="isauth != null">
+        #{isauth,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ldu.bs.bean.AuthenticationExample" resultType="java.lang.Long">
+    select count(*) from authentication
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update authentication
+    <set>
+      <if test="record.authenticationId != null">
+        authentication_id = #{record.authenticationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.license != null">
+        license = #{record.license,jdbcType=VARCHAR},
+      </if>
+      <if test="record.authDate != null">
+        auth_date = #{record.authDate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isauth != null">
+        isAuth = #{record.isauth,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update authentication
+    set authentication_id = #{record.authenticationId,jdbcType=INTEGER},
+      company_id = #{record.companyId,jdbcType=INTEGER},
+      license = #{record.license,jdbcType=VARCHAR},
+      auth_date = #{record.authDate,jdbcType=VARCHAR},
+      isAuth = #{record.isauth,jdbcType=CHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.bs.bean.Authentication">
+    update authentication
+    <set>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="license != null">
+        license = #{license,jdbcType=VARCHAR},
+      </if>
+      <if test="authDate != null">
+        auth_date = #{authDate,jdbcType=VARCHAR},
+      </if>
+      <if test="isauth != null">
+        isAuth = #{isauth,jdbcType=CHAR},
+      </if>
+    </set>
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ldu.bs.bean.Authentication">
+    update authentication
+    set company_id = #{companyId,jdbcType=INTEGER},
+      license = #{license,jdbcType=VARCHAR},
+      auth_date = #{authDate,jdbcType=VARCHAR},
+      isAuth = #{isauth,jdbcType=CHAR}
+    where authentication_id = #{authenticationId,jdbcType=INTEGER}
+  </update>
+</mapper>

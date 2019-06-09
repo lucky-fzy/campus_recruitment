@@ -1,0 +1,197 @@
+/*!community/modules/common/main.less*/
+@charset "utf-8";
+
+.comment-list {
+    position: relative;
+    margin-top: 10px;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    background-color: #fafafa
+}
+
+.comment-list .top-arrow-out {
+    position: absolute;
+    left: 12px;
+    top: -10px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #ededed;
+    border-right: 10px solid transparent
+}
+
+.comment-list .top-arrow-in {
+    position: absolute;
+    left: 13px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-bottom: 9px solid #fafafa;
+    border-right: 9px solid transparent
+}
+
+.comment-list .c-list {
+    padding: 20px 20px 15px
+}
+
+.comment-list .c-item {
+    position: relative;
+    display: block;
+    margin-left: 56px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ededed
+}
+
+.comment-list .c-item:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0
+}
+
+.comment-list .c-item .portrait {
+    position: absolute;
+    left: -56px;
+    top: 5px;
+    width: 46px;
+    height: 46px;
+    border-radius: 23px;
+    overflow: hidden
+}
+
+.comment-list .c-item .comment-info {
+    line-height: 24px
+}
+
+.comment-list .c-item .comment-info .title {
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999
+}
+
+.comment-list .c-item .comment-info .title a {
+    color: #777
+}
+
+.comment-list .c-item .comment-info .title a:hover {
+    color: #00b38a
+}
+
+.comment-list .c-item .comment-info .publish-date {
+    font-size: 12px;
+    line-height: 24px;
+    color: #999
+}
+
+.comment-list .c-item .comment-info .content {
+    font-size: 14px;
+    line-height: 24px;
+    color: #333
+}
+
+.comment-list .c-item .comment-info .c-reply {
+    font-size: 14px;
+    line-height: 24px;
+    color: #00b38a
+}
+
+.comment-list .c-item .comment-info .c-reply:hover {
+    color: #00a57f
+}
+
+.comment-list .c-item .comment-info .reply-comment {
+    position: relative;
+    display: none;
+    margin-top: 10px
+}
+
+.comment-list .c-item .comment-info .reply-comment textarea.comment:hover + .top-arrow-out, .comment-list .c-item .comment-info .reply-comment textarea.comment:focus + .top-arrow-out {
+    border-bottom-color: #00b38a
+}
+
+.comment-list .c-item .comment-info .reply-comment .top-arrow-out {
+    border-bottom-color: #ededed
+}
+
+.comment-list .c-item .comment-info .reply-comment .top-arrow-in {
+    border-bottom-color: #fff
+}
+
+.comment-list textarea.comment {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555;
+    border: 1px solid #ededed;
+    border-radius: 3px;
+    resize: none
+}
+
+.comment-list textarea.comment:hover, .comment-list textarea.comment:focus {
+    color: #333;
+    border-color: #00b38a
+}
+
+.comment-list .c-reply-infos {
+    font-size: 12px;
+    line-height: 22px;
+    color: #999;
+    text-align: right
+}
+
+.comment-list .c-reply-infos .c-limit-tips {
+    position: relative;
+    top: -12px;
+    float: left
+}
+
+.comment-list .c-reply-infos .c-limit-tips .limit {
+    color: #f45153
+}
+
+.comment-list .c-reply-infos .c-reply-btn {
+    width: 76px;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: top
+}
+
+.comment-list .c-reply-infos .c-reply-cancel {
+    font-size: 16px;
+    color: #555;
+    background-color: transparent
+}
+
+.comment-list .c-reply-infos .disabled {
+    background-color: #d4d6d9;
+    cursor: default
+}
+
+.comment-list .c-reply-infos .disabled:hover {
+    background-color: #d4d6d9
+}
+
+.comment-list .load-more-comments {
+    display: block;
+    margin: 0 auto 20px;
+    width: 126px;
+    height: 30px
+}
+
+.comment-list .loading1 {
+    margin: 20px auto
+}
+
+.comment-list .reply-answer {
+    padding: 20px;
+    border-top: 1px solid #ededed
+}
+
+.comment-list .reply-answer .reply-answer-form {
+    display: block
+}

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ldu.bs.dao.MidClassMapper">
+  <resultMap id="BaseResultMap" type="com.ldu.bs.bean.MidClass">
+    <id column="mid_id" jdbcType="INTEGER" property="midId" />
+    <result column="mid_name" jdbcType="VARCHAR" property="midName" />
+    <result column="big_id" jdbcType="INTEGER" property="bigId" />
+  </resultMap>
+  <resultMap id="WithBigResultMap" type="com.ldu.bs.bean.MidClass">
+    <id column="mid_id" jdbcType="INTEGER" property="midId" />
+    <result column="mid_name" jdbcType="VARCHAR" property="midName" />
+    <result column="big_id" jdbcType="INTEGER" property="bigId" />
+
+    <association javaType="com.ldu.bs.bean.BigClass" property="bigClass">
+      <id column="big_id" jdbcType="INTEGER" property="bigId" />
+      <result column="big_name" jdbcType="VARCHAR" property="bigName" />
+    </association>
+  </resultMap>
+
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    mid_id, mid_name, big_id
+  </sql>
+
+  <select id="selectWithBig" parameterType="java.lang.Integer" resultMap="WithBigResultMap">
+    select * from mid_class m,big_class b where m.big_id = b.big_id and m.mid_id = #{midId}
+  </select>
+  <select id="selectByExample" parameterType="com.ldu.bs.bean.MidClassExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mid_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mid_class
+    where mid_id = #{midId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mid_class
+    where mid_id = #{midId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ldu.bs.bean.MidClassExample">
+    delete from mid_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ldu.bs.bean.MidClass">
+    insert into mid_class (mid_id, mid_name, big_id
+      )
+    values (#{midId,jdbcType=INTEGER}, #{midName,jdbcType=VARCHAR}, #{bigId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ldu.bs.bean.MidClass">
+    insert into mid_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="midId != null">
+        mid_id,
+      </if>
+      <if test="midName != null">
+        mid_name,
+      </if>
+      <if test="bigId != null">
+        big_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="midId != null">
+        #{midId,jdbcType=INTEGER},
+      </if>
+      <if test="midName != null">
+        #{midName,jdbcType=VARCHAR},
+      </if>
+      <if test="bigId != null">
+        #{bigId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ldu.bs.bean.MidClassExample" resultType="java.lang.Long">
+    select count(*) from mid_class
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update mid_class
+    <set>
+      <if test="record.midId != null">
+        mid_id = #{record.midId,jdbcType=INTEGER},
+      </if>
+      <if test="record.midName != null">
+        mid_name = #{record.midName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bigId != null">
+        big_id = #{record.bigId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update mid_class
+    set mid_id = #{record.midId,jdbcType=INTEGER},
+      mid_name = #{record.midName,jdbcType=VARCHAR},
+      big_id = #{record.bigId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.bs.bean.MidClass">
+    update mid_class
+    <set>
+      <if test="midName != null">
+        mid_name = #{midName,jdbcType=VARCHAR},
+      </if>
+      <if test="bigId != null">
+        big_id = #{bigId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where mid_id = #{midId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ldu.bs.bean.MidClass">
+    update mid_class
+    set mid_name = #{midName,jdbcType=VARCHAR},
+      big_id = #{bigId,jdbcType=INTEGER}
+    where mid_id = #{midId,jdbcType=INTEGER}
+  </update>
+</mapper>
